@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.ix8oio8xi'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.jupiter
+    implementation libs.testcontainers.core
+    implementation libs.testcontainers.jupiter
+    implementation libs.testcontainers.postgresql
+}
+
+test {
+    useJUnitPlatform()
+}

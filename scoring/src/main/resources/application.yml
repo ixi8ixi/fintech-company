@@ -1,0 +1,12 @@
+server:
+  port: 8086
+
+grpc:
+  port: 9096
+
+scoring:
+  client:
+    payment-engine:
+      grpc:
+        host: localhost
+        port: 9090

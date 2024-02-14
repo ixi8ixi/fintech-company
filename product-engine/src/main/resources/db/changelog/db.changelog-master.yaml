@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/changes/001-initial-schema.sql
+  - include:
+      file: classpath:/db/changelog/changes/002-add-product-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/003-add-agreement-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/004-change-id-to-generated.sql
+  - include:
+      file: classpath:/db/changelog/changes/005-add-agreement-status.sql
+  - include:
+      file: classpath:/db/changelog/changes/006-add-payment-schedules-table.sql
+  - include:
+      file: classpath:/db/changelog/changes/007-add-schedules-and-payments.sql
+  - include:
+      file: classpath:/db/changelog/changes/008-add-auto-generated-id-for-payments-and-schedules.sql
+  - include:
+      file: classpath:/db/changelog/changes/009-add-status-checks.sql

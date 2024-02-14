@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.academy.fintech.scoring;
+
+option java_multiple_files = true;
+
+service ScoringInfo{
+  rpc Info(InfoRequest) returns (InfoResponse) {}
+}
+
+message InfoRequest{
+  string clientId = 1;
+  string requestedDisbursementAmount = 2;
+  string interestRate = 3;
+  int32 loanTerm = 4;
+}
+
+message InfoResponse{
+  string fixedPayment = 1;
+  repeated string paymentDates = 2;
+}

@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db_payment_engine:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=fintech
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data_one
+
+  db_origination:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=origination
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5434:5432'
+    volumes:
+      - db:/var/lib/postgresql/data_two
+
+volumes:
+  db:
+    driver: local

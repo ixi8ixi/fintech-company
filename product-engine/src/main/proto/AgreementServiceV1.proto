@@ -1,0 +1,28 @@
+syntax = "proto3";
+package com.academy.fintech.pe.grpc.agreement.v1;
+import "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+
+service AgreementService{
+  rpc AddAgreement(AgreementRequest) returns (EngineResponse) {}
+  rpc Disbursement(DisbursementRequest) returns (EngineResponse) {}
+}
+
+message AgreementRequest{
+  int64 clientId = 1;
+  int32 loanTerm = 2;
+  string disbursementAmount = 3;
+  string originationAmount = 4;
+  string interest = 5;
+  string productId = 6;
+}
+
+message DisbursementRequest{
+  int64 agreementNumber = 1;
+  string date = 2;
+}
+
+message EngineResponse{
+  int64 value = 1;
+  string message = 2;
+}

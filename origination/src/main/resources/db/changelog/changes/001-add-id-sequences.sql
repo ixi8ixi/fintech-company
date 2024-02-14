@@ -1,0 +1,2 @@
+CREATE SEQUENCE client_id START 1;
+CREATE SEQUENCE application_id START 1;

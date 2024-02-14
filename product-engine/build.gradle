@@ -1,0 +1,49 @@
+plugins {
+    alias libs.plugins.spring.plugin
+    alias libs.plugins.google.protobuf
+}
+
+dependencies {
+    implementation libs.spring.grpc
+    implementation libs.javax.annotation
+    implementation libs.protoc.grpc.stub
+    implementation libs.protobuf.java
+
+    implementation libs.spring.web
+    implementation libs.spring.actuator
+    implementation libs.spring.jpa
+    implementation libs.spring.starter
+
+    implementation libs.liquibase
+    implementation libs.postgresql.driver
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    testImplementation libs.spring.test
+    testImplementation libs.jupiter
+    testImplementation libs.testcontainers.core
+    testImplementation libs.testcontainers.jupiter
+    testImplementation libs.testcontainers.postgresql
+
+    testImplementation libs.apache.poi
+
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
+}
+
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get()
+    }
+
+    plugins {
+        grpc {
+            artifact = libs.protoc.grpc.gen.get()
+        }
+    }
+
+    generateProtoTasks {
+        all()*.plugins {grpc {}}
+    }
+}

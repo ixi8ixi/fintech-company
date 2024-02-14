@@ -1,0 +1,33 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5434/origination
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8084
+
+scoring:
+  scheduled:
+    rate: 1000
+    batch-size: 100
+
+grpc:
+  port: 9094
+  enable-reflection: true
+
+origination:
+  client:
+    scoring:
+      grpc:
+        host: localhost
+        port: 9096

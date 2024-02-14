@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/changes/001-add-id-sequences.sql
+  - include:
+      file: classpath:/db/changelog/changes/002-add-client-and-application-tables.sql
